@@ -29,7 +29,7 @@ class JenkinsBot(BotPlugin):
 
     def get_primary_contact(self, mydict):
         count = 0
-        while (count < len(mydict)+1):
+        while (count < len(mydict['users'])+1):
             if mydict['users'][count]['on_call'][0]['escalation_policy']['name'] == 'Malibu DevOps' and mydict['users'][count]['on_call'][0]['level'] == 1:
                 phone_number = self.get_phone_number(mydict['users'][count]['user_url'])
                 return 'Primary Contact: ' + mydict['users'][count]['name'] + ' ' + phone_number
@@ -37,7 +37,7 @@ class JenkinsBot(BotPlugin):
 
     def get_secondary_contact(self, mydict):
         count = 0
-        while (count < len(mydict)+1):
+        while (count < len(mydict['users'])+1):
             if mydict['users'][count]['on_call'][0]['escalation_policy']['name'] == 'Malibu DevOps' and mydict['users'][count]['on_call'][0]['level'] == 2:
                 phone_number = self.get_phone_number(mydict['users'][count]['user_url'])
                 return 'Secondary Contact: ' + mydict['users'][count]['name'] + ' ' + phone_number
