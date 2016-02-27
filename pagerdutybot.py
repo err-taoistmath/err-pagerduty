@@ -6,7 +6,7 @@ from config import PAGERDUTY_TOKEN
 
 __author__ = 'taoistmath'
 
-class JenkinsBot(BotPlugin):
+class PagerDutyBot(BotPlugin):
 
     def pagerduty_oncall(self):
         self.oncall = requests.get("https://dnb-atc.pagerduty.com/api/v1/users/on_call", headers={'Authorization': 'Token token='+PAGERDUTY_TOKEN})
